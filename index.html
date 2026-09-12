@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CobbleRealm — Serveur Cobblemon</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background:
+                radial-gradient(circle at top, #16213a 0%, #090d16 55%, #05070c 100%);
+            color: white;
+            min-height: 100vh;
+        }
+
+        nav {
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8%;
+            background: rgba(5, 8, 15, 0.85);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+            color: #55eaff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #d9e4f2;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover {
+            color: #55eaff;
+        }
+
+        .hero {
+            min-height: calc(100vh - 75px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 50px;
+            background: rgba(60, 255, 170, 0.12);
+            border: 1px solid rgba(60, 255, 170, 0.35);
+            color: #5cffb3;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: clamp(55px, 9vw, 105px);
+            line-height: 0.95;
+            margin-bottom: 25px;
+            background: linear-gradient(90deg, #59dfff, #9d78ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 22px;
+            color: #aab6c8;
+            line-height: 1.6;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 16px 27px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 800;
+            transition: 0.2s;
+        }
+
+        .download {
+            background: linear-gradient(90deg, #25c8ff, #7c5cff);
+            color: white;
+            box-shadow: 0 10px 35px rgba(64, 160, 255, 0.25);
+        }
+
+        .secondary {
+            color: white;
+            border: 1px solid rgba(255,255,255,0.18);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+        }
+
+        .info {
+            margin-top: 28px;
+            color: #778397;
+            font-size: 14px;
+        }
+
+        .server {
+            margin-top: 50px;
+            display: inline-flex;
+            gap: 12px;
+            align-items: center;
+            padding: 12px 18px;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            background: #42f59b;
+            border-radius: 50%;
+            box-shadow: 0 0 15px #42f59b;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">CobbleRealm</div>
+
+    <div class="nav-links">
+        <a href="#">Accueil</a>
+        <a href="#">Wiki</a>
+        <a href="#">Boutique</a>
+        <a href="#">Discord</a>
+    </div>
+</nav>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            ● SERVEUR EN LIGNE
+        </div>
+
+        <h1>COBBLEREALM</h1>
+
+        <p class="subtitle">
+            Explorez un monde Pokémon avec Cobblemon.<br>
+            Capturez, entraînez, combattez et construisez votre aventure.
+        </p>
+
+        <div class="buttons">
+
+            <a class="button download" href="#">
+                Télécharger le launcher
+            </a>
+
+            <a class="button secondary" href="#">
+                Rejoindre Discord
+            </a>
+
+        </div>
+
+        <div class="info">
+            Windows 10/11 • Minecraft 1.21.1 • CobbleRealm V4
+        </div>
+
+        <div class="server">
+            <span class="dot"></span>
+            Serveur CobbleRealm disponible
+        </div>
+
+    </div>
+
+</section>
+
+</body>
+</html>
