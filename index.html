@@ -1,207 +1,617 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>CobbleRealm — Serveur Cobblemon</title>
+    <title>CobbleRealm - Serveur Cobblemon</title>
 
     <style>
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
         }
 
         body {
-    font-family: Arial, sans-serif;
-    background-image:
-        linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
-        url("background.png");
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    color: white;
-    min-height: 100vh;
-}
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
 
-    nav {
-            height: 75px;
+            background:
+                linear-gradient(
+                    rgba(0, 15, 45, 0.15),
+                    rgba(0, 15, 45, 0.25)
+                ),
+                url("background.png");
+
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           BARRE DU HAUT
+        ========================== */
+
+        nav {
+            height: 76px;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 8%;
-            background: rgba(5, 8, 15, 0.85);
+
+            padding: 0 10%;
+
+            background: rgba(3, 13, 34, 0.88);
+            backdrop-filter: blur(10px);
+
             border-bottom: 1px solid rgba(255,255,255,0.08);
+
+            position: relative;
+            z-index: 10;
         }
 
         .logo {
-            font-size: 25px;
-            font-weight: 800;
-            color: #55eaff;
-        }
+            font-size: 27px;
+            font-weight: 900;
 
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
+            background: linear-gradient(
+                90deg,
+                #42eaff,
+                #75a8ff
+            );
 
-        .nav-links a {
-            color: #d9e4f2;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .nav-links a:hover {
-            color: #55eaff;
-        }
-
-        .hero {
-            min-height: calc(100vh - 75px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 40px 20px;
-        }
-
-        .hero-content {
-            max-width: 850px;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 8px 16px;
-            border-radius: 50px;
-            background: rgba(60, 255, 170, 0.12);
-            border: 1px solid rgba(60, 255, 170, 0.35);
-            color: #5cffb3;
-            font-weight: bold;
-            margin-bottom: 25px;
-        }
-
-        h1 {
-            font-size: clamp(55px, 9vw, 105px);
-            line-height: 0.95;
-            margin-bottom: 25px;
-            background: linear-gradient(90deg, #59dfff, #9d78ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .subtitle {
-            font-size: 22px;
-            color: #aab6c8;
-            line-height: 1.6;
-            margin-bottom: 35px;
-        }
-
-        .buttons {
+        .nav-links {
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
+            align-items: center;
+            gap: 38px;
         }
 
-        .button {
-            display: inline-block;
-            padding: 16px 27px;
-            border-radius: 10px;
+        .nav-links a {
+            color: white;
             text-decoration: none;
-            font-weight: 800;
+
+            font-weight: 700;
+            font-size: 16px;
+
+            opacity: 0.9;
+
             transition: 0.2s;
         }
 
-        .download {
-            background: linear-gradient(90deg, #25c8ff, #7c5cff);
-            color: white;
-            box-shadow: 0 10px 35px rgba(64, 160, 255, 0.25);
+        .nav-links a:hover {
+            color: #35eaff;
+            opacity: 1;
+            transform: translateY(-2px);
         }
 
-        .secondary {
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            min-height: calc(100vh - 76px);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 250px 30px 40px;
+        }
+
+        .hero-content {
+            width: 100%;
+            max-width: 1250px;
+        }
+
+        /* Badge */
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            background: rgba(3, 20, 40, 0.82);
+
+            border: 1px solid rgba(70, 232, 255, 0.45);
+
+            border-radius: 50px;
+
+            padding: 10px 22px;
+
+            font-size: 16px;
+            font-weight: 800;
+
+            box-shadow:
+                0 0 25px rgba(0, 221, 255, 0.3);
+
+            margin-bottom: 18px;
+        }
+
+        .pokeball-mini {
+            width: 20px;
+            height: 20px;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    #ff3030 0%,
+                    #ff3030 45%,
+                    #111 45%,
+                    #111 55%,
+                    #fff 55%,
+                    #fff 100%
+                );
+
+            border: 2px solid white;
+        }
+
+        /* Texte */
+
+        .hero h1 {
+            font-size: clamp(34px, 4vw, 62px);
+            font-weight: 900;
+
+            text-shadow:
+                0 4px 20px rgba(0,0,0,0.8);
+
+            margin-bottom: 8px;
+        }
+
+        .hero h1 span {
+            color: #33e5ff;
+        }
+
+        .subtitle {
+            font-size: 21px;
+            font-weight: 500;
+
+            text-shadow:
+                0 3px 12px rgba(0,0,0,0.9);
+
+            margin-bottom: 35px;
+        }
+
+        /* =========================
+           BOUTONS
+        ========================== */
+
+        .buttons {
+            display: grid;
+
+            grid-template-columns:
+                1.1fr 1.4fr 1fr 1fr;
+
+            gap: 16px;
+
+            width: 100%;
+            max-width: 1100px;
+
+            margin: 0 auto 25px;
+        }
+
+        .button {
+            min-height: 75px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 15px 20px;
+
+            border-radius: 13px;
+
             color: white;
-            border: 1px solid rgba(255,255,255,0.18);
-            background: rgba(255,255,255,0.05);
+            text-decoration: none;
+
+            font-size: 18px;
+            font-weight: 800;
+
+            border: 1px solid rgba(255,255,255,0.25);
+
+            backdrop-filter: blur(8px);
+
+            transition:
+                transform 0.2s,
+                box-shadow 0.2s,
+                filter 0.2s;
+
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
         }
 
         .button:hover {
-            transform: translateY(-3px);
+            transform: translateY(-4px);
+            filter: brightness(1.15);
         }
 
-        .info {
-            margin-top: 28px;
-            color: #778397;
-            font-size: 14px;
+        /* Télécharger */
+
+        .download {
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(0, 181, 255, 0.95),
+                    rgba(0, 92, 190, 0.95)
+                );
+
+            box-shadow:
+                0 0 25px rgba(0, 174, 255, 0.35);
         }
+
+        /* Discord */
+
+        .discord {
+            background:
+                linear-gradient(
+                    135deg,
+                    #5865f2,
+                    #743cff
+                );
+
+            border: 2px solid rgba(178, 158, 255, 0.75);
+
+            box-shadow:
+                0 0 30px rgba(88, 101, 242, 0.55);
+
+            font-size: 21px;
+        }
+
+        /* Wiki */
+
+        .wiki {
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(0, 203, 115, 0.95),
+                    rgba(0, 133, 80, 0.95)
+                );
+
+            box-shadow:
+                0 0 25px rgba(0, 230, 135, 0.3);
+        }
+
+        /* Boutique */
+
+        .shop {
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255, 169, 0, 0.95),
+                    rgba(164, 93, 0, 0.95)
+                );
+
+            box-shadow:
+                0 0 25px rgba(255, 165, 0, 0.32);
+        }
+
+        /* =========================
+           STATUT SERVEUR
+        ========================== */
 
         .server {
-            margin-top: 50px;
             display: inline-flex;
-            gap: 12px;
+
             align-items: center;
-            padding: 12px 18px;
-            border-radius: 10px;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.08);
+            gap: 10px;
+
+            background: rgba(0, 36, 75, 0.82);
+
+            padding: 9px 24px;
+
+            border-radius: 50px;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            margin-bottom: 28px;
+
+            box-shadow:
+                0 0 20px rgba(0, 0, 0, 0.35);
         }
 
         .dot {
             width: 10px;
             height: 10px;
-            background: #42f59b;
+
             border-radius: 50%;
-            box-shadow: 0 0 15px #42f59b;
+
+            background: #2bff9b;
+
+            box-shadow:
+                0 0 12px #2bff9b;
         }
+
+        /* =========================
+           BARRE D'INFORMATIONS
+        ========================== */
+
+        .stats {
+            max-width: 1020px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            background:
+                rgba(3, 28, 65, 0.88);
+
+            backdrop-filter: blur(12px);
+
+            border: 1px solid rgba(255,255,255,0.12);
+
+            border-radius: 12px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 12px 40px rgba(0,0,0,0.4);
+        }
+
+        .stat {
+            padding: 18px 15px;
+
+            display: flex;
+            flex-direction: column;
+
+            justify-content: center;
+
+            min-height: 75px;
+
+            border-right:
+                1px solid rgba(255,255,255,0.15);
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat-title {
+            font-size: 13px;
+            opacity: 0.85;
+            margin-bottom: 5px;
+        }
+
+        .stat-value {
+            font-size: 17px;
+            font-weight: 900;
+
+            color: #31e9ff;
+        }
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 900px) {
+
+            nav {
+                padding: 0 5%;
+            }
+
+            .nav-links {
+                gap: 16px;
+            }
+
+            .hero {
+                padding-top: 180px;
+            }
+
+            .buttons {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .stats {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            nav {
+                height: auto;
+                padding: 18px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                gap: 18px;
+            }
+
+            .hero {
+                padding-top: 130px;
+            }
+
+            .buttons {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .stat {
+                border-right: none;
+                border-bottom:
+                    1px solid rgba(255,255,255,0.12);
+            }
+        }
+
     </style>
 </head>
 
 <body>
 
 <nav>
-    <div class="logo">CobbleRealm</div>
 
- <div class="nav-links">
-    <a href="https://cobblerealm.gitbook.io/cobblerealm-docs" target="_blank">Wiki</a>
-    <a href="https://cobblerealm-beta.tebex.store/" target="_blank">Boutique</a>
-    <a href="https://discord.gg/JVW2bN7Tvm" target="_blank">Discord</a>
-   </div>
+    <div class="logo">
+        CobbleRealm
+    </div>
+
+    <div class="nav-links">
+
+        <a href="https://cobblerealm.gitbook.io/cobblerealm-docs"
+           target="_blank">
+            Wiki
+        </a>
+
+        <a href="https://cobblerealm-beta.tebex.store/"
+           target="_blank">
+            Boutique
+        </a>
+
+        <a href="https://discord.gg/JVW2bN7Tvm"
+           target="_blank">
+            Discord
+        </a>
+
+    </div>
+
 </nav>
+
 
 <section class="hero">
 
     <div class="hero-content">
 
         <div class="badge">
-            ● SERVEUR EN LIGNE
+
+            <div class="pokeball-mini"></div>
+
+            SERVEUR COBBLEMON
+
+            <div class="pokeball-mini"></div>
+
         </div>
 
-        <h1>COBBLEREALM</h1>
+
+        <h1>
+            Explorez un monde Pokémon avec
+            <span>Cobblemon.</span>
+        </h1>
 
         <p class="subtitle">
-            Explorez un monde Pokémon avec Cobblemon.<br>
             Capturez, entraînez, combattez et construisez votre aventure.
         </p>
 
+
         <div class="buttons">
 
-            <a class="button download" href="https://github.com/cyrian290606/CobbleRealm-Launcher/releases/download/v1.0.1/CobbleRealm.Launcher.Setup.1.0.0.exe">
-             Télécharger le launcher
+            <a
+                class="button download"
+                href="https://github.com/cyrian290606/CobbleRealm-Launcher/releases/download/v1.0.1/CobbleRealm.Launcher.Setup.1.0.0.exe"
+            >
+                ⬇ Télécharger le launcher
             </a>
 
-            <a class="button secondary" href="https://discord.gg/JVW2bN7Tvm" target="_blank">
-             Rejoindre Discord
+
+            <a
+                class="button discord"
+                href="https://discord.gg/JVW2bN7Tvm"
+                target="_blank"
+            >
+                💬 Rejoindre Discord
+            </a>
+
+
+            <a
+                class="button wiki"
+                href="https://cobblerealm.gitbook.io/cobblerealm-docs"
+                target="_blank"
+            >
+                📖 Voir le Wiki
+            </a>
+
+
+            <a
+                class="button shop"
+                href="https://cobblerealm-beta.tebex.store/"
+                target="_blank"
+            >
+                🛒 Boutique
             </a>
 
         </div>
 
-        <div class="info">
-            Windows 10/11 • Minecraft 1.21.1 • CobbleRealm V4
-        </div>
 
         <div class="server">
+
             <span class="dot"></span>
+
             Serveur CobbleRealm disponible
+
+        </div>
+
+
+        <div class="stats">
+
+            <div class="stat">
+                <span class="stat-title">
+                    Joueurs
+                </span>
+
+                <span class="stat-value">
+                    Serveur ouvert
+                </span>
+            </div>
+
+
+            <div class="stat">
+                <span class="stat-title">
+                    Version
+                </span>
+
+                <span class="stat-value">
+                    Minecraft 1.21.1
+                </span>
+            </div>
+
+
+            <div class="stat">
+                <span class="stat-title">
+                    Modpack
+                </span>
+
+                <span class="stat-value">
+                    Cobblemon 1.7.3
+                </span>
+            </div>
+
+
+            <div class="stat">
+                <span class="stat-title">
+                    Aventure
+                </span>
+
+                <span class="stat-value">
+                    Survie Cobblemon
+                </span>
+            </div>
+
         </div>
 
     </div>
