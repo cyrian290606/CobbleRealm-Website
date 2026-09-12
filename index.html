@@ -14,14 +14,19 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background:
-                radial-gradient(circle at top, #16213a 0%, #090d16 55%, #05070c 100%);
-            color: white;
-            min-height: 100vh;
-        }
+    font-family: Arial, sans-serif;
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+        url("background.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+    min-height: 100vh;
+}
 
-        nav {
+    nav {
             height: 75px;
             display: flex;
             align-items: center;
