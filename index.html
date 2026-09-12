@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>CobbleRealm - Serveur Cobblemon</title>
+    <title>CobbleRealm — Serveur Cobblemon</title>
 
     <style>
+
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         html,
@@ -24,10 +25,10 @@
             font-family: Arial, Helvetica, sans-serif;
             color: white;
 
-            background:
+            background-image:
                 linear-gradient(
-                    rgba(0, 15, 45, 0.15),
-                    rgba(0, 15, 45, 0.25)
+                    rgba(0, 15, 35, 0.16),
+                    rgba(0, 15, 35, 0.28)
                 ),
                 url("background.png");
 
@@ -41,25 +42,25 @@
         }
 
         /* =========================
-           BARRE DU HAUT
-        ========================== */
+           NAVBAR
+        ========================= */
 
         nav {
-            height: 76px;
+            height: 78px;
 
             display: flex;
             align-items: center;
             justify-content: space-between;
 
-            padding: 0 10%;
+            padding: 0 9%;
 
-            background: rgba(3, 13, 34, 0.88);
+            background: rgba(3, 12, 30, 0.88);
             backdrop-filter: blur(10px);
 
             border-bottom: 1px solid rgba(255,255,255,0.08);
 
             position: relative;
-            z-index: 10;
+            z-index: 20;
         }
 
         .logo {
@@ -68,8 +69,8 @@
 
             background: linear-gradient(
                 90deg,
-                #42eaff,
-                #75a8ff
+                #52e7ff,
+                #7fb7ff
             );
 
             -webkit-background-clip: text;
@@ -79,15 +80,15 @@
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 38px;
+            gap: 34px;
         }
 
         .nav-links a {
             color: white;
             text-decoration: none;
 
-            font-weight: 700;
             font-size: 16px;
+            font-weight: 700;
 
             opacity: 0.9;
 
@@ -95,30 +96,33 @@
         }
 
         .nav-links a:hover {
-            color: #35eaff;
+            color: #4ce9ff;
             opacity: 1;
             transform: translateY(-2px);
         }
 
         /* =========================
            HERO
-        ========================== */
+        ========================= */
 
         .hero {
-            min-height: calc(100vh - 76px);
+            min-height: calc(100vh - 78px);
 
             display: flex;
-            align-items: center;
+            align-items: flex-end;
             justify-content: center;
 
             text-align: center;
 
-            padding: 250px 30px 40px;
+            padding:
+                275px
+                25px
+                35px;
         }
 
         .hero-content {
             width: 100%;
-            max-width: 1250px;
+            max-width: 1180px;
         }
 
         /* Badge */
@@ -128,21 +132,24 @@
             align-items: center;
             gap: 10px;
 
-            background: rgba(3, 20, 40, 0.82);
+            background: rgba(4, 31, 58, 0.88);
 
-            border: 1px solid rgba(70, 232, 255, 0.45);
-
-            border-radius: 50px;
+            border: 1px solid rgba(77, 228, 255, 0.45);
 
             padding: 10px 22px;
+
+            border-radius: 50px;
 
             font-size: 16px;
             font-weight: 800;
 
-            box-shadow:
-                0 0 25px rgba(0, 221, 255, 0.3);
-
             margin-bottom: 18px;
+
+            box-shadow:
+                0 0 25px rgba(0, 220, 255, 0.28);
+
+            text-shadow:
+                0 2px 5px rgba(0,0,0,0.75);
         }
 
         .pokeball-mini {
@@ -155,87 +162,93 @@
                 linear-gradient(
                     to bottom,
                     #ff3030 0%,
-                    #ff3030 45%,
-                    #111 45%,
-                    #111 55%,
-                    #fff 55%,
+                    #ff3030 43%,
+                    #111 43%,
+                    #111 57%,
+                    #fff 57%,
                     #fff 100%
                 );
 
             border: 2px solid white;
         }
 
-        /* Texte */
+        /* Texte principal */
 
         .hero h1 {
-            font-size: clamp(34px, 4vw, 62px);
+            font-size: clamp(32px, 3vw, 48px);
+
             font-weight: 900;
 
-            text-shadow:
-                0 4px 20px rgba(0,0,0,0.8);
-
             margin-bottom: 8px;
+
+            text-shadow:
+                0 4px 18px rgba(0,0,0,0.9);
         }
 
         .hero h1 span {
-            color: #33e5ff;
+            color: #32e8ff;
         }
 
         .subtitle {
-            font-size: 21px;
+            font-size: 20px;
+
             font-weight: 500;
 
-            text-shadow:
-                0 3px 12px rgba(0,0,0,0.9);
+            margin-bottom: 28px;
 
-            margin-bottom: 35px;
+            text-shadow:
+                0 3px 12px rgba(0,0,0,0.95);
         }
 
         /* =========================
            BOUTONS
-        ========================== */
+        ========================= */
 
         .buttons {
+            width: 100%;
+
             display: grid;
 
             grid-template-columns:
-                1.1fr 1.4fr 1fr 1fr;
+                1.1fr
+                1.45fr
+                1fr
+                1fr;
 
-            gap: 16px;
+            gap: 15px;
 
-            width: 100%;
-            max-width: 1100px;
-
-            margin: 0 auto 25px;
+            margin: 0 auto 22px;
         }
 
         .button {
-            min-height: 75px;
+            min-height: 72px;
 
             display: flex;
             align-items: center;
             justify-content: center;
 
-            padding: 15px 20px;
+            padding: 14px 18px;
 
             border-radius: 13px;
 
-            color: white;
             text-decoration: none;
 
-            font-size: 18px;
-            font-weight: 800;
+            color: white;
 
-            border: 1px solid rgba(255,255,255,0.25);
+            font-size: 17px;
+            font-weight: 900;
+
+            border: 1px solid rgba(255,255,255,0.24);
 
             backdrop-filter: blur(8px);
 
+            text-shadow:
+                0 2px 5px rgba(0,0,0,0.55);
+
             transition:
                 transform 0.2s,
-                box-shadow 0.2s,
-                filter 0.2s;
-
-            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+                filter 0.2s,
+                box-shadow 0.2s;
         }
 
         .button:hover {
@@ -249,12 +262,12 @@
             background:
                 linear-gradient(
                     135deg,
-                    rgba(0, 181, 255, 0.95),
-                    rgba(0, 92, 190, 0.95)
+                    rgba(0, 185, 255, 0.96),
+                    rgba(0, 91, 190, 0.96)
                 );
 
             box-shadow:
-                0 0 25px rgba(0, 174, 255, 0.35);
+                0 0 25px rgba(0, 174, 255, 0.36);
         }
 
         /* Discord */
@@ -264,13 +277,13 @@
                 linear-gradient(
                     135deg,
                     #5865f2,
-                    #743cff
+                    #763cff
                 );
 
-            border: 2px solid rgba(178, 158, 255, 0.75);
+            border: 2px solid rgba(187, 170, 255, 0.8);
 
             box-shadow:
-                0 0 30px rgba(88, 101, 242, 0.55);
+                0 0 34px rgba(88, 101, 242, 0.58);
 
             font-size: 21px;
         }
@@ -281,12 +294,12 @@
             background:
                 linear-gradient(
                     135deg,
-                    rgba(0, 203, 115, 0.95),
-                    rgba(0, 133, 80, 0.95)
+                    rgba(0, 202, 116, 0.96),
+                    rgba(0, 125, 75, 0.96)
                 );
 
             box-shadow:
-                0 0 25px rgba(0, 230, 135, 0.3);
+                0 0 24px rgba(0, 220, 126, 0.3);
         }
 
         /* Boutique */
@@ -295,37 +308,36 @@
             background:
                 linear-gradient(
                     135deg,
-                    rgba(255, 169, 0, 0.95),
-                    rgba(164, 93, 0, 0.95)
+                    rgba(255, 165, 0, 0.96),
+                    rgba(167, 93, 0, 0.96)
                 );
 
             box-shadow:
-                0 0 25px rgba(255, 165, 0, 0.32);
+                0 0 24px rgba(255, 165, 0, 0.3);
         }
 
         /* =========================
            STATUT SERVEUR
-        ========================== */
+        ========================= */
 
         .server {
             display: inline-flex;
-
             align-items: center;
             gap: 10px;
 
-            background: rgba(0, 36, 75, 0.82);
+            background: rgba(4, 42, 78, 0.86);
 
-            padding: 9px 24px;
+            padding: 8px 22px;
 
             border-radius: 50px;
 
             font-size: 14px;
             font-weight: 700;
 
-            margin-bottom: 28px;
+            margin-bottom: 22px;
 
             box-shadow:
-                0 0 20px rgba(0, 0, 0, 0.35);
+                0 4px 20px rgba(0,0,0,0.35);
         }
 
         .dot {
@@ -334,20 +346,18 @@
 
             border-radius: 50%;
 
-            background: #2bff9b;
+            background: #2dff9b;
 
             box-shadow:
-                0 0 12px #2bff9b;
+                0 0 12px #2dff9b;
         }
 
         /* =========================
-           BARRE D'INFORMATIONS
-        ========================== */
+           BARRE INFOS BAS
+        ========================= */
 
         .stats {
-            max-width: 1020px;
-
-            margin: auto;
+            width: 100%;
 
             display: grid;
 
@@ -355,29 +365,30 @@
                 repeat(4, 1fr);
 
             background:
-                rgba(3, 28, 65, 0.88);
+                rgba(3, 29, 65, 0.9);
 
             backdrop-filter: blur(12px);
 
-            border: 1px solid rgba(255,255,255,0.12);
+            border:
+                1px solid rgba(255,255,255,0.12);
 
             border-radius: 12px;
 
             overflow: hidden;
 
             box-shadow:
-                0 12px 40px rgba(0,0,0,0.4);
+                0 12px 40px rgba(0,0,0,0.42);
         }
 
         .stat {
-            padding: 18px 15px;
+            min-height: 78px;
+
+            padding: 16px;
 
             display: flex;
             flex-direction: column;
 
             justify-content: center;
-
-            min-height: 75px;
 
             border-right:
                 1px solid rgba(255,255,255,0.15);
@@ -389,33 +400,28 @@
 
         .stat-title {
             font-size: 13px;
-            opacity: 0.85;
-            margin-bottom: 5px;
+
+            opacity: 0.82;
+
+            margin-bottom: 6px;
         }
 
         .stat-value {
-            font-size: 17px;
+            font-size: 18px;
+
             font-weight: 900;
 
-            color: #31e9ff;
+            color: #31e8ff;
         }
 
         /* =========================
-           MOBILE
-        ========================== */
+           RESPONSIVE
+        ========================= */
 
-        @media (max-width: 900px) {
-
-            nav {
-                padding: 0 5%;
-            }
-
-            .nav-links {
-                gap: 16px;
-            }
+        @media (max-width: 1000px) {
 
             .hero {
-                padding-top: 180px;
+                padding-top: 220px;
             }
 
             .buttons {
@@ -427,15 +433,21 @@
                 grid-template-columns:
                     repeat(2, 1fr);
             }
+
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 650px) {
 
             nav {
                 height: auto;
-                padding: 18px;
+
+                padding:
+                    18px
+                    20px;
+
                 flex-direction: column;
-                gap: 15px;
+
+                gap: 14px;
             }
 
             .nav-links {
@@ -443,7 +455,7 @@
             }
 
             .hero {
-                padding-top: 130px;
+                padding-top: 180px;
             }
 
             .buttons {
@@ -456,12 +468,19 @@
 
             .stat {
                 border-right: none;
+
                 border-bottom:
                     1px solid rgba(255,255,255,0.12);
             }
+
+            .stat:last-child {
+                border-bottom: none;
+            }
+
         }
 
     </style>
+
 </head>
 
 <body>
@@ -474,18 +493,24 @@
 
     <div class="nav-links">
 
-        <a href="https://cobblerealm.gitbook.io/cobblerealm-docs"
-           target="_blank">
+        <a
+            href="https://cobblerealm.gitbook.io/cobblerealm-docs"
+            target="_blank"
+        >
             Wiki
         </a>
 
-        <a href="https://cobblerealm-beta.tebex.store/"
-           target="_blank">
+        <a
+            href="https://cobblerealm-beta.tebex.store/"
+            target="_blank"
+        >
             Boutique
         </a>
 
-        <a href="https://discord.gg/JVW2bN7Tvm"
-           target="_blank">
+        <a
+            href="https://discord.gg/JVW2bN7Tvm"
+            target="_blank"
+        >
             Discord
         </a>
 
@@ -497,6 +522,7 @@
 <section class="hero">
 
     <div class="hero-content">
+
 
         <div class="badge">
 
@@ -514,12 +540,14 @@
             <span>Cobblemon.</span>
         </h1>
 
+
         <p class="subtitle">
             Capturez, entraînez, combattez et construisez votre aventure.
         </p>
 
 
         <div class="buttons">
+
 
             <a
                 class="button download"
@@ -555,6 +583,7 @@
                 🛒 Boutique
             </a>
 
+
         </div>
 
 
@@ -569,7 +598,9 @@
 
         <div class="stats">
 
+
             <div class="stat">
+
                 <span class="stat-title">
                     Joueurs
                 </span>
@@ -577,10 +608,12 @@
                 <span class="stat-value">
                     Serveur ouvert
                 </span>
+
             </div>
 
 
             <div class="stat">
+
                 <span class="stat-title">
                     Version
                 </span>
@@ -588,10 +621,12 @@
                 <span class="stat-value">
                     Minecraft 1.21.1
                 </span>
+
             </div>
 
 
             <div class="stat">
+
                 <span class="stat-title">
                     Modpack
                 </span>
@@ -599,10 +634,12 @@
                 <span class="stat-value">
                     Cobblemon 1.7.3
                 </span>
+
             </div>
 
 
             <div class="stat">
+
                 <span class="stat-title">
                     Aventure
                 </span>
@@ -610,13 +647,18 @@
                 <span class="stat-value">
                     Survie Cobblemon
                 </span>
+
             </div>
 
+
         </div>
+
 
     </div>
 
 </section>
 
+
 </body>
+
 </html>
